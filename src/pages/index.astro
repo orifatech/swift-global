@@ -56,19 +56,19 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
               Operational Governance &amp; Standards:
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
-              <div class="p-3 rounded-xl bg-obsidian-900/80 border border-obsidian-750">
+              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
                 <span class="text-amber-gold block text-[10px] uppercase font-bold">GOVERNANCE</span>
                 <span class="font-bold text-white">ISO 9001 QMS</span>
               </div>
-              <div class="p-3 rounded-xl bg-obsidian-900/80 border border-obsidian-750">
+              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
                 <span class="text-amber-gold block text-[10px] uppercase font-bold">INSPECTION</span>
                 <span class="font-bold text-white">ASME &amp; API FAT</span>
               </div>
-              <div class="p-3 rounded-xl bg-obsidian-900/80 border border-obsidian-750">
+              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
                 <span class="text-amber-gold block text-[10px] uppercase font-bold">LOGISTICS</span>
                 <span class="font-bold text-white">Incoterms 2020</span>
               </div>
-              <div class="p-3 rounded-xl bg-obsidian-900/80 border border-obsidian-750">
+              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
                 <span class="text-amber-gold block text-[10px] uppercase font-bold">DELIVERY</span>
                 <span class="font-bold text-white">Turnkey EPC</span>
               </div>
@@ -78,8 +78,8 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
 
         <!-- Right: Modern Glassmorphic Image Frame -->
         <div class="lg:col-span-5 relative">
-          <div class="relative rounded-2xl overflow-hidden p-2 bg-gradient-to-b from-amber-gold/30 via-obsidian-800 to-obsidian-900 shadow-2xl">
-            <div class="relative rounded-xl overflow-hidden aspect-[4/3] sm:aspect-[16/11]">
+          <div class="relative rounded-md overflow-hidden p-2 bg-gradient-to-b from-amber-gold/30 via-obsidian-800 to-obsidian-900 shadow-2xl">
+            <div class="relative rounded-md overflow-hidden aspect-[4/3] sm:aspect-[16/11]">
               <ResponsivePicture
                 desktopSrc="/images/international-epc-site.webp"
                 mobileSrc="/images/international-epc-site-mobile.webp"
@@ -90,7 +90,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
               <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950/80 via-transparent to-transparent pointer-events-none"></div>
               
               <!-- Floating Metadata Badge -->
-              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-obsidian-950/90 backdrop-blur-md border border-amber-gold/30 flex items-center justify-between text-xs font-mono">
+              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-md bg-obsidian-950/90 backdrop-blur-md border border-amber-gold/30 flex items-center justify-between text-xs font-mono">
                 <div>
                   <span class="text-amber-gold block text-[10px] uppercase">FLAGSHIP EPC PRACTICE</span>
                   <strong class="text-white">ASME / API / ISO 9001</strong>
@@ -127,16 +127,16 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {SERVICES.slice(0, 3).map((service) => (
-          <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
+          <article class="glass-card glass-card-hover rounded-md p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
             <div class="space-y-4">
               <div class="flex items-center justify-between font-mono">
                 <span class="text-2xl font-display font-bold text-amber-gold">{service.number} //</span>
-                <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300">
+                <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-amber-950/60 border border-amber-500/30 text-amber-300">
                   {service.keySpecs[0]?.label}: {service.keySpecs[0]?.value}
                 </span>
               </div>
 
-              <div class="rounded-xl overflow-hidden aspect-[16/9]">
+              <div class="rounded-md overflow-hidden aspect-[16/9]">
                 <ResponsivePicture
                   desktopSrc={service.imageDesktop}
                   mobileSrc={service.imageMobile}
@@ -198,7 +198,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {PROJECTS.map((project) => (
-          <article class="glass-card glass-card-hover rounded-2xl overflow-hidden group flex flex-col justify-between">
+          <article class="glass-card glass-card-hover rounded-md overflow-hidden group flex flex-col justify-between">
             <div class="relative aspect-[16/10] overflow-hidden">
               <ResponsivePicture
                 desktopSrc={project.image}
@@ -210,14 +210,14 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
               
               <!-- Sector Badge -->
               <div class="absolute top-4 left-4">
-                <span class="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-obsidian-900/90 text-amber-gold border border-amber-gold/40 backdrop-blur-md">
+                <span class="px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider bg-obsidian-900/90 text-amber-gold border border-amber-gold/40 backdrop-blur-md">
                   {project.sector}
                 </span>
               </div>
 
               <!-- Region Tag -->
               <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-black/80 text-slate-300 border border-slate-700 backdrop-blur-md">
+                <span class="px-3 py-1 rounded-md text-xs font-mono uppercase tracking-wider bg-black/80 text-slate-300 border border-slate-700 backdrop-blur-md">
                   {project.region}
                 </span>
               </div>
@@ -271,7 +271,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {GLOBAL_REGIONS.map((region) => (
-          <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5 border-l-4 border-l-amber-gold">
+          <div class="glass-card rounded-md p-6 sm:p-8 space-y-5 border-l-4 border-l-amber-gold">
             <div class="flex items-center justify-between">
               <span class="text-3xl" aria-hidden="true">{region.flag}</span>
               <span class="font-mono text-xs text-amber-gold uppercase tracking-wider">{region.leadRole}</span>
@@ -329,7 +329,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
         </Button>
         <a
           href="tel:+15875663166"
-          class="inline-flex items-center gap-2 px-6 py-4 rounded-xl font-mono text-sm font-semibold text-slate-200 hover:text-white bg-obsidian-850 border border-obsidian-700 hover:border-amber-gold transition-all"
+          class="inline-flex items-center gap-2 px-6 py-4 rounded-md font-mono text-sm font-semibold text-slate-200 hover:text-white bg-obsidian-850 border border-obsidian-700 hover:border-amber-gold transition-all"
         >
           <span>TEL: +1 (587) 566-3166</span>
         </a>
