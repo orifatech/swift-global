@@ -1,0 +1,40 @@
+---
+interface Props {
+  index?: string;
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+  class?: string;
+}
+
+const {
+  index,
+  title,
+  subtitle,
+  align = 'left',
+  class: className = ''
+} = Astro.props;
+---
+
+<div class={`space-y-3 ${align === 'center' ? 'text-center mx-auto max-w-3xl' : 'max-w-3xl'} ${className}`}>
+  {index && (
+    <div class="flex items-center gap-2">
+      <span class="text-xs font-mono font-semibold uppercase tracking-architect text-amber-gold">
+        {index}
+      </span>
+      <span class="h-px w-8 bg-amber-gold/50"></span>
+    </div>
+  )}
+
+  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold uppercase tracking-tight text-white leading-tight">
+    {title}
+  </h2>
+
+  <div class={`h-0.5 w-14 bg-gradient-to-r from-amber-gold to-amber-warm rounded-full ${align === 'center' ? 'mx-auto' : ''}`}></div>
+
+  {subtitle && (
+    <p class="text-sm sm:text-base text-slate-300 font-sans leading-relaxed pt-1">
+      {subtitle}
+    </p>
+  )}
+</div>

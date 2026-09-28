@@ -1,0 +1,27 @@
+{
+  "name": "swift-global",
+  "version": "1.0.0",
+  "description": "Swift Global Inc. — Engineering Procurement, Heavy Industrial & Turnkey EPC",
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview"
+  },
+  "keywords": [
+    "procurement",
+    "epc",
+    "heavy-industrial",
+    "petrochemical",
+    "logistics",
+    "turnkey-construction"
+  ],
+  "author": "Swift Global Inc.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^5.18.2",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.19"
+  }
+}

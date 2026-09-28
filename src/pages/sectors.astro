@@ -1,0 +1,112 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import Button from '@/components/ui/Button.astro';
+import Badge from '@/components/ui/Badge.astro';
+import ResponsivePicture from '@/components/ui/ResponsivePicture.astro';
+import { SECTORS } from '@/data/companyData';
+---
+
+<Layout
+  title="Industrial Sectors & Core Markets | Swift Global Inc."
+  description="Explore the key market sectors served by Swift Global Inc.: Heavy Industrial Processing, Deepwater Marine Ports, Energy & Petrochemicals, and Freight Intermodal Facilities."
+  activePath="/sectors"
+>
+  <!-- Page Header -->
+  <section class="bg-obsidian-950 text-white py-16 lg:py-24 border-b border-obsidian-800 relative overflow-hidden">
+    <div class="absolute inset-0 bg-industrial-grid opacity-60 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="flex items-center gap-2">
+          <Badge variant="amber">Market Focus</Badge>
+          <span class="font-mono text-xs text-slate-400">Capital Infrastructure</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-tight">
+          Industrial Sectors &amp; Markets
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 font-sans leading-relaxed">
+          From deepwater port terminals to petrochemical processing plants and automated manufacturing facilities, Swift Global Inc. deploys technical expertise where equipment complexity and performance tolerances are highest.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors Grid -->
+  <section class="py-20 lg:py-28 bg-obsidian-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      {SECTORS.map((sector, idx) => (
+        <article class="glass-card rounded-2xl p-8 sm:p-12 space-y-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex items-center gap-2 text-amber-gold font-mono text-xs uppercase tracking-architect">
+                <span>// SECTOR 0{idx + 1}</span>
+              </div>
+
+              <h2 class="text-2xl sm:text-3xl font-display font-bold uppercase text-white">
+                {sector.title}
+              </h2>
+
+              <p class="text-base text-slate-300 font-sans leading-relaxed">
+                {sector.summary}
+              </p>
+
+              <!-- Key Stats Ribbon -->
+              <div class="flex flex-wrap gap-4 py-2">
+                {sector.stats.map((stat) => (
+                  <div class="px-3.5 py-2 rounded-xl bg-obsidian-950 border border-obsidian-750 font-mono text-xs">
+                    <span class="text-slate-400 block text-[10px] uppercase">{stat.label}</span>
+                    <strong class="text-amber-gold text-sm">{stat.value}</strong>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Scope Deliverables -->
+              <div class="space-y-2 pt-2">
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Specialized Capabilities:</span>
+                <ul class="space-y-2 text-sm text-slate-300 font-sans">
+                  {sector.bulletPoints.map((point) => (
+                    <li class="flex items-start gap-2.5">
+                      <span class="text-amber-gold">✓</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <!-- Image Frame -->
+            <div class="lg:col-span-5">
+              <div class="rounded-xl overflow-hidden aspect-[16/10] border border-amber-gold/20 shadow-xl">
+                <ResponsivePicture
+                  desktopSrc={sector.imageDesktop}
+                  mobileSrc={sector.imageMobile}
+                  alt={sector.title}
+                  aspectRatio="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-obsidian-950 text-white text-center border-t border-obsidian-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white">
+        Discuss Your Sector-Specific Requirements
+      </h2>
+      <p class="text-base text-slate-300 max-w-xl mx-auto font-sans">
+        Our industrial specialists can assist in developing procurement packages and construction execution plans.
+      </p>
+      <div class="pt-4">
+        <Button href="/contact" variant="primary" size="lg">
+          Submit Procurement RFP →
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

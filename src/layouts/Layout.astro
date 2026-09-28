@@ -1,0 +1,136 @@
+---
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { COMPANY } from '@/data/companyData';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  activePath?: string;
+  ogImage?: string;
+  preloadImage?: string;
+  preloadImageMobile?: string;
+}
+
+const {
+  title,
+  description = COMPANY.description,
+  activePath = '/',
+  ogImage = '/images/international-epc-site.webp',
+  preloadImage,
+  preloadImageMobile
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://swiftglobalinc.com').href;
+
+// Structured Data (JSON-LD) for Swift Global Inc.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Corporation",
+  "@id": "https://swiftglobalinc.com/#organization",
+  "name": "Swift Global Inc.",
+  "legalName": "Swift Global Inc.",
+  "url": "https://swiftglobalinc.com",
+  "logo": "https://swiftglobalinc.com/images/swift-global-logo.svg",
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1000 King Street West",
+    "addressLocality": "Toronto",
+    "addressRegion": "ON",
+    "postalCode": "M6K 3N1",
+    "addressCountry": "CA"
+  },
+  "telephone": "+1-587-566-3166",
+  "email": "info@swiftglobalinc.com",
+  "sameAs": [
+    "https://swiftconsultinc.com"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth bg-obsidian-950 text-slate-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title} | {COMPANY.legalName}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content={COMPANY.legalName} />
+    <meta name="theme-color" content="#040911" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | ${COMPANY.legalName}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={COMPANY.name} />
+    <meta property="og:locale" content="en_CA" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={`${title} | ${COMPANY.legalName}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload Hero Image for Optimal LCP -->
+    {preloadImage && (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadImage}
+        type="image/webp"
+        media="(min-width: 769px)"
+        fetchpriority="high"
+      />
+    )}
+    {preloadImageMobile && (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadImageMobile}
+        type="image/webp"
+        media="(max-width: 768px)"
+        fetchpriority="high"
+      />
+    )}
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-screen flex flex-col font-sans bg-obsidian-950 text-slate-100 antialiased selection:bg-amber-gold selection:text-obsidian-950">
+    
+    <!-- Accessibility: Skip Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-amber-gold focus:text-obsidian-950 focus:rounded-lg font-mono text-xs uppercase font-bold"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Header Navigation -->
+    <Header activePath={activePath} />
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-grow focus:outline-none" tabindex="-1">
+      <slot />
+    </main>
+
+    <!-- Corporate Footer -->
+    <Footer />
+
+  </body>
+</html>

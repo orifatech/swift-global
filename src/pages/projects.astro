@@ -1,0 +1,106 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import Button from '@/components/ui/Button.astro';
+import Badge from '@/components/ui/Badge.astro';
+import ResponsivePicture from '@/components/ui/ResponsivePicture.astro';
+import { PROJECTS } from '@/data/companyData';
+---
+
+<Layout
+  title="International EPC & Procurement Projects | Swift Global Inc."
+  description="Review representative heavy industrial, marine logistics, and petrochemical facility projects executed by Swift Global Inc. across North America, the Middle East, and West Africa."
+  activePath="/projects"
+>
+  <!-- Page Header -->
+  <section class="bg-obsidian-950 text-white py-16 lg:py-24 border-b border-obsidian-800 relative overflow-hidden">
+    <div class="absolute inset-0 bg-industrial-grid opacity-60 pointer-events-none" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="flex items-center gap-2">
+          <Badge variant="amber">Capital Track Record</Badge>
+          <span class="font-mono text-xs text-slate-400">Representative Contracts</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-tight">
+          Delivered Projects &amp; Executed Scopes
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 font-sans leading-relaxed">
+          From high-pressure refinery upgrades in the Arabian Gulf to deepwater terminal equipment logistics in West Africa, explore our global engineering and procurement execution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="py-20 lg:py-28 bg-obsidian-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {PROJECTS.map((project) => (
+          <article class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between group">
+            <div class="relative aspect-[16/10] overflow-hidden">
+              <ResponsivePicture
+                desktopSrc={project.image}
+                mobileSrc={project.imageMobile}
+                alt={project.title}
+                aspectRatio="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
+              
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-obsidian-900/90 text-amber-gold border border-amber-gold/40 backdrop-blur-md">
+                  {project.sector}
+                </span>
+              </div>
+
+              <div class="absolute top-4 right-4">
+                <span class="px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider bg-black/80 text-slate-300 border border-slate-700 backdrop-blur-md">
+                  {project.region}
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-4 flex-grow flex flex-col justify-between">
+              <div class="space-y-3">
+                <div class="flex items-center gap-2 font-mono text-xs text-slate-400">
+                  <span>📍 {project.location}</span>
+                  <span>•</span>
+                  <span>{project.year}</span>
+                </div>
+
+                <h2 class="text-2xl font-display font-bold text-white group-hover:text-amber-gold transition-colors">
+                  {project.title}
+                </h2>
+
+                <p class="text-sm text-slate-300 leading-relaxed font-sans">
+                  {project.scope}
+                </p>
+              </div>
+
+              <div class="pt-4 border-t border-obsidian-800 flex items-center justify-between text-xs font-mono">
+                <span class="text-amber-gold font-bold">{project.stats}</span>
+                <span class="text-slate-400">Verified Delivery ✓</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-obsidian-950 text-white text-center border-t border-obsidian-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase text-white">
+        Bring Predictable Delivery to Your Upcoming Venture
+      </h2>
+      <p class="text-base text-slate-300 max-w-xl mx-auto font-sans">
+        Review your required equipment specifications and timeline with our senior project directors.
+      </p>
+      <div class="pt-4">
+        <Button href="/contact" variant="primary" size="lg">
+          Submit Procurement RFP →
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

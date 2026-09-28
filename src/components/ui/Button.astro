@@ -1,0 +1,61 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  ariaLabel?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  type = 'button',
+  class: className = '',
+  ariaLabel,
+  target,
+  rel
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-display font-semibold uppercase tracking-wider transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 select-none cursor-pointer rounded-xl disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98]';
+
+const sizeStyles = {
+  sm: 'px-4 py-2 text-xs gap-1.5',
+  md: 'px-6 py-3 text-sm gap-2',
+  lg: 'px-8 py-4 text-base gap-2.5 font-bold'
+};
+
+const variantStyles = {
+  primary: 'bg-amber-gold hover:bg-amber-warm text-obsidian-950 shadow-amber-glow hover:shadow-amber-glow-lg border border-amber-400 focus-visible:outline-amber-gold',
+  secondary: 'bg-obsidian-900/90 hover:bg-obsidian-850 text-white border border-amber-gold/40 hover:border-amber-gold focus-visible:outline-amber-gold shadow-sm',
+  accent: 'bg-steel-600 hover:bg-steel-500 text-white border border-steel-500 focus-visible:outline-steel-400 shadow-steel-glow',
+  outline: 'bg-transparent text-slate-200 border border-slate-700 hover:border-amber-gold hover:text-amber-gold hover:bg-amber-gold/5 focus-visible:outline-amber-gold',
+  dark: 'bg-obsidian-850 hover:bg-obsidian-800 text-slate-100 border border-obsidian-700 hover:border-slate-500 focus-visible:outline-white'
+};
+
+const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
+---
+
+{href ? (
+  <a
+    href={href}
+    class={combinedClasses}
+    aria-label={ariaLabel}
+    target={target}
+    rel={target === '_blank' ? (rel || 'noopener noreferrer') : rel}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    class={combinedClasses}
+    aria-label={ariaLabel}
+  >
+    <slot />
+  </button>
+)}

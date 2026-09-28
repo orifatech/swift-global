@@ -1,0 +1,31 @@
+---
+interface Props {
+  desktopSrc: string;
+  mobileSrc: string;
+  alt: string;
+  aspectRatio?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const {
+  desktopSrc,
+  mobileSrc,
+  alt,
+  aspectRatio = 'aspect-[16/9]',
+  loading = 'lazy',
+  class: className = ''
+} = Astro.props;
+---
+
+<picture class="block w-full h-full">
+  <source media="(max-width: 768px)" srcset={mobileSrc} type="image/webp" />
+  <source media="(min-width: 769px)" srcset={desktopSrc} type="image/webp" />
+  <img
+    src={desktopSrc}
+    alt={alt}
+    loading={loading}
+    decoding="async"
+    class={`w-full h-full object-cover rounded-xl ${aspectRatio} ${className}`}
+  />
+</picture>

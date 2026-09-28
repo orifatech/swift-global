@@ -1,0 +1,161 @@
+---
+import { COMPANY, SERVICES, SECTORS, GLOBAL_REGIONS } from '@/data/companyData';
+import Button from '@/components/ui/Button.astro';
+
+const sister = COMPANY.sisterCompany;
+---
+
+<footer class="bg-obsidian-950 border-t border-obsidian-800 text-white relative overflow-hidden" role="contentinfo">
+  
+  <!-- Subtle Industrial Glow in Background -->
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-glow/5 filter blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Sister Entity Practice Banner -->
+  <aside aria-label="Sister practice link" class="border-b border-obsidian-800 bg-gradient-to-r from-obsidian-950 via-obsidian-900 to-obsidian-950 py-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-steel-950 border border-steel-700/60 font-mono text-[11px] text-steel-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-steel-400"></span>
+          <span>Sister Engineering Practice</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-display font-bold text-white">
+          Looking for Structural Engineering or Canadian Building Permits?
+        </h3>
+        <p class="text-sm text-slate-300 max-w-2xl leading-relaxed">
+          {sister.description}
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+        <a
+          href={sister.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto text-center px-6 py-3.5 rounded-xl font-display text-xs font-bold uppercase tracking-wider bg-steel-600 hover:bg-steel-500 text-white border border-steel-500 shadow-steel-glow transition-all"
+        >
+          {sister.ctaLabel}
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Corporate Footer Grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+      
+      <!-- Col 1: Corporate Profile & Logos -->
+      <div class="lg:col-span-2 space-y-6">
+        <div class="h-12 w-auto flex items-center">
+          <img
+            src={COMPANY.logoSvg}
+            alt={COMPANY.legalName}
+            width="280"
+            height="62"
+            class="h-10 w-auto object-contain"
+            loading="lazy"
+          />
+        </div>
+
+        <p class="text-sm text-slate-300 leading-relaxed font-sans max-w-md">
+          {COMPANY.description}
+        </p>
+
+        <!-- Technical Accreditations & Standards -->
+        <div class="space-y-2 pt-2">
+          <div class="text-[10px] font-mono uppercase tracking-architect text-amber-gold">
+            Procurement &amp; EPC Governance Standards:
+          </div>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px] text-slate-300">
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-900 border border-obsidian-750">ISO 9001:2015</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-900 border border-obsidian-750">ASME Sec. VIII</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-900 border border-obsidian-750">API 650 / 510</span>
+            <span class="px-2.5 py-1 rounded-md bg-obsidian-900 border border-obsidian-750">Incoterms 2020</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Services -->
+      <div class="space-y-4">
+        <h4 class="font-display font-bold uppercase tracking-wider text-xs text-amber-gold">
+          Core Capabilities
+        </h4>
+        <ul class="space-y-2.5 text-xs text-slate-300">
+          {SERVICES.map((service) => (
+            <li>
+              <a href={`/services#service-${service.number}`} class="hover:text-amber-gold transition-colors block">
+                {service.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 3: Sectors & Regional Hubs -->
+      <div class="space-y-4">
+        <h4 class="font-display font-bold uppercase tracking-wider text-xs text-amber-gold">
+          Sectors &amp; Hubs
+        </h4>
+        <ul class="space-y-2.5 text-xs text-slate-300">
+          {SECTORS.map((sector) => (
+            <li>
+              <a href="/sectors" class="hover:text-amber-gold transition-colors block">
+                {sector.title}
+              </a>
+            </li>
+          ))}
+          <li class="pt-2 text-[11px] font-mono text-slate-400">
+            Operating Hubs:
+          </li>
+          <li class="text-[11px] font-mono text-slate-300">
+            • Toronto • Houston • Dubai • Lagos
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Corporate Headquarters -->
+      <div class="space-y-4 font-mono text-xs">
+        <h4 class="font-display font-bold uppercase tracking-wider text-xs text-amber-gold font-sans">
+          Corporate Dispatch
+        </h4>
+        <div class="space-y-2 text-slate-300">
+          <div>
+            <span class="text-slate-500 block text-[10px] uppercase">Corporate HQ</span>
+            <strong class="text-white font-semibold">1000 King Street West</strong><br />
+            Toronto, ON, M6K 3N1, Canada
+          </div>
+          <div>
+            <span class="text-slate-500 block text-[10px] uppercase">Direct Dispatch</span>
+            <a href="tel:+15875663166" class="text-white hover:text-amber-gold transition-colors font-semibold">
+              +1 (587) 566-3166
+            </a>
+          </div>
+          <div>
+            <span class="text-slate-500 block text-[10px] uppercase">Official RFQ Email</span>
+            <a href={`mailto:${COMPANY.email}`} class="text-amber-gold hover:underline">
+              {COMPANY.email}
+            </a>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <Button href="/contact" variant="primary" size="sm" class="w-full">
+            Submit RFP
+          </Button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Continuum Bar -->
+    <div class="mt-14 pt-8 border-t border-obsidian-850 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+      <div>
+        © {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span>Toronto • Dubai • Lagos</span>
+        <span>•</span>
+        <span>Engineering Procurement &amp; Turnkey EPC</span>
+      </div>
+    </div>
+  </div>
+</footer>
