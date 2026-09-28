@@ -9,11 +9,11 @@ const sister = COMPANY.sisterCompany;
   class="fixed right-0 top-1/2 -translate-y-1/2 z-30 flex items-center transition-all duration-300"
   aria-label={`Visit sister entity ${sister.name}`}
 >
-  <!-- Collapsed Icon Button (44 x 44 px) -->
+  <!-- Collapsed Icon Button (44 x 44 px, permanent white background) -->
   <button
     id="sister-switcher-toggle"
     type="button"
-    class="w-[44px] h-[44px] rounded-l-md bg-white border-t border-b border-l border-slate-300 text-navy-900 flex items-center justify-center shadow-xl hover:bg-slate-100 transition-colors focus-visible:outline-2 focus-visible:outline-steel-500"
+    class="w-[44px] h-[44px] rounded-l-md bg-white border-t border-b border-l border-slate-300 text-navy-900 flex items-center justify-center shadow-xl hover:bg-slate-50 transition-colors focus-visible:outline-2 focus-visible:outline-steel-500"
     aria-expanded="false"
     aria-controls="sister-switcher-panel"
     aria-label={`Expand link to ${sister.name}`}
@@ -25,7 +25,7 @@ const sister = COMPANY.sisterCompany;
     </svg>
   </button>
 
-  <!-- Expanded Card Panel (180px maximum width) -->
+  <!-- Expanded Card Panel (180px maximum width, permanent white background) -->
   <div
     id="sister-switcher-panel"
     class="hidden w-[180px] max-w-[180px] rounded-l-md bg-white border-t border-b border-l border-slate-300 shadow-2xl p-3 flex-col items-center relative text-navy-900"
