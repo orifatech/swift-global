@@ -1,0 +1,138 @@
+---
+import { COMPANY } from '@/data/companyData';
+
+const sister = COMPANY.sisterCompany;
+---
+
+<aside
+  id="sister-site-switcher"
+  class="fixed right-0 top-1/2 -translate-y-1/2 z-30 flex items-center transition-all duration-300"
+  aria-label={`Visit sister entity ${sister.name}`}
+>
+  <!-- Collapsed Icon Button (44 x 44 px) -->
+  <button
+    id="sister-switcher-toggle"
+    type="button"
+    class="w-[44px] h-[44px] rounded-l-md bg-white border-t border-b border-l border-slate-300 text-navy-900 flex items-center justify-center shadow-xl hover:bg-slate-100 transition-colors focus-visible:outline-2 focus-visible:outline-steel-500"
+    aria-expanded="false"
+    aria-controls="sister-switcher-panel"
+    aria-label={`Expand link to ${sister.name}`}
+    title={`Visit ${sister.name}`}
+  >
+    <!-- Architectural Compass / Blueprint Drafting Icon -->
+    <svg class="w-5 h-5 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>
+  </button>
+
+  <!-- Expanded Card Panel (180px maximum width) -->
+  <div
+    id="sister-switcher-panel"
+    class="hidden w-[180px] max-w-[180px] rounded-l-md bg-white border-t border-b border-l border-slate-300 shadow-2xl p-3 flex-col items-center relative text-navy-900"
+    role="region"
+    aria-label={`${sister.name} link preview`}
+  >
+    <!-- Collapse / Minimize Button -->
+    <button
+      id="sister-switcher-close"
+      type="button"
+      class="absolute top-1 right-1 w-5 h-5 rounded flex items-center justify-center text-slate-400 hover:text-navy-900 hover:bg-slate-100 transition-colors focus-visible:outline-2 focus-visible:outline-steel-500"
+      aria-label="Collapse preview"
+      title="Collapse"
+    >
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Destination Link with Logo & Sub-Text -->
+    <a
+      href={sister.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="w-full flex flex-col items-center pt-2 pb-0.5 group focus-visible:outline-2 focus-visible:outline-steel-500 rounded"
+    >
+      <img
+        src="/images/swift-consult-logo.svg"
+        alt={sister.name}
+        class="h-6 w-auto max-w-[145px] object-contain group-hover:scale-105 transition-transform duration-200"
+        loading="lazy"
+      />
+      <span class="mt-2 text-[10px] font-mono font-semibold uppercase tracking-wider text-steel-600 flex items-center gap-1 group-hover:text-navy-900 transition-colors">
+        Visit Website <span aria-hidden="true">↗</span>
+      </span>
+    </a>
+  </div>
+</aside>
+
+<script>
+  function setupSisterSiteSwitcher() {
+    const container = document.getElementById('sister-site-switcher');
+    const toggleBtn = document.getElementById('sister-switcher-toggle');
+    const panel = document.getElementById('sister-switcher-panel');
+    const closeBtn = document.getElementById('sister-switcher-close');
+
+    if (!container || !toggleBtn || !panel || !closeBtn) return;
+
+    let isPinnedOpen = false;
+
+    function openSwitcher(pinned = false) {
+      if (pinned) isPinnedOpen = true;
+      toggleBtn?.classList.add('hidden');
+      panel?.classList.remove('hidden');
+      panel?.classList.add('flex');
+      toggleBtn?.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeSwitcher() {
+      isPinnedOpen = false;
+      panel?.classList.remove('flex');
+      panel?.classList.add('hidden');
+      toggleBtn?.classList.remove('hidden');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
+    }
+
+    // Hover reveal on desktop screens
+    container.addEventListener('mouseenter', () => {
+      if (window.matchMedia('(hover: hover)').matches) {
+        openSwitcher(false);
+      }
+    });
+
+    container.addEventListener('mouseleave', () => {
+      if (window.matchMedia('(hover: hover)').matches && !isPinnedOpen) {
+        closeSwitcher();
+      }
+    });
+
+    // Click toggle for touch devices & keyboard users
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openSwitcher(true);
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeSwitcher();
+      toggleBtn.focus();
+    });
+
+    // Outside click dismiss
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target as Node)) {
+        closeSwitcher();
+      }
+    });
+
+    // Escape key dismiss
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.classList.contains('hidden')) {
+        closeSwitcher();
+        toggleBtn.focus();
+      }
+    });
+  }
+
+  setupSisterSiteSwitcher();
+  document.addEventListener('astro:page-load', setupSisterSiteSwitcher);
+</script>
