@@ -220,6 +220,11 @@ export const SECTORS: SectorItem[] = [
   }
 ];
 
+export interface ProjectSpecification {
+  label: string;
+  value: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -231,6 +236,10 @@ export interface ProjectItem {
   image: string;
   imageMobile: string;
   stats: string;
+  contractType?: string;
+  verificationStatus?: string;
+  highlights?: string[];
+  specifications?: ProjectSpecification[];
 }
 
 export const PROJECTS: ProjectItem[] = [
@@ -241,10 +250,26 @@ export const PROJECTS: ProjectItem[] = [
     location: 'Jebel Ali, United Arab Emirates',
     region: 'Middle East',
     year: '2023',
-    scope: 'Turnkey EPC procurement of specialized high-pressure process vessels, alloy heat exchangers, process piping fabrication, and FAT inspection.',
+    scope: 'Turnkey EPC procurement of specialized high-pressure process vessels, alloy heat exchangers, process piping prefabrication, and technical Factory Acceptance Testing (FAT) expediting.',
     image: '/images/international-epc-site.webp',
     imageMobile: '/images/international-epc-site-mobile.webp',
-    stats: '120,000 BPD Capacity • ASME Stamped'
+    stats: '120,000 BPD Capacity • ASME Stamped',
+    contractType: 'Turnkey EPC Equipment Package',
+    verificationStatus: 'ASME Section VIII Certified',
+    highlights: [
+      'Procured 14 high-pressure API 650/620 storage units and duplex stainless steel reactor vessels',
+      'Orchestrated multi-country ocean heavy-lift logistics with chartered semi-submersible vessels',
+      'Conducted 100% radiographic weld testing and hydrostatic vessel pressure audits under ASME Section VIII',
+      'Achieved zero punch-list delays during live refinery tie-in and commissioning'
+    ],
+    specifications: [
+      { label: 'Throughput Capacity', value: '120,000 Barrels Per Day (BPD)' },
+      { label: 'Procurement Scope', value: 'API Heat Exchangers, Process Columns, Pumps' },
+      { label: 'Metallurgy', value: 'Duplex 2205 Stainless & Inconel 625 Clad' },
+      { label: 'Quality Verification', value: 'ASME Section VIII Div 1 & 2 / API 510 Stamped' },
+      { label: 'Staging Hub', value: 'Jebel Ali Free Zone (JAFZA) Bonded Yard' },
+      { label: 'FAT Inspection', value: 'Third-Party Lloyd\'s Register Certified' }
+    ]
   },
   {
     id: 'lagos-deepwater-staging',
@@ -253,10 +278,26 @@ export const PROJECTS: ProjectItem[] = [
     location: 'Lekki Free Zone, Lagos, Nigeria',
     region: 'West Africa',
     year: '2023',
-    scope: 'Port equipment sourcing, heavy-duty mobile harbor cranes, quayside structural integration, and international freight consolidation.',
+    scope: 'Port equipment sourcing, heavy-duty mobile harbor cranes, quayside structural integration, roll-on/roll-off (RoRo) ramps, and international freight consolidation.',
     image: '/images/global-logistics.webp',
     imageMobile: '/images/global-logistics-mobile.webp',
-    stats: '3 Heavy Berths • 500k TEU Throughput'
+    stats: '3 Heavy Berths • 500k TEU Throughput',
+    contractType: 'International Procurement & Port Integration',
+    verificationStatus: 'Verified Maritime Delivery',
+    highlights: [
+      'Procured twin 120-ton Gottwald mobile harbor cranes and fleet of heavy reach stackers',
+      'Engineered heavy container yard pavement and bollard tensioning anchoring for mega-vessels',
+      'Established bonded logistics corridor with expedited customs clearance at Lekki Deep Sea Port',
+      'Delivered turnkey quayside power supply, perimeter security, and high-mast solar lighting'
+    ],
+    specifications: [
+      { label: 'Berth Deepwater Draft', value: '16.5 Meters Low-Water Datum' },
+      { label: 'Container Capacity', value: '500,000+ TEU Annual Throughput' },
+      { label: 'Equipment Sourced', value: 'Twin 120-Ton Mobile Harbor Cranes, 12 Kalmar Stackers' },
+      { label: 'Marine Standards', value: 'PIANC Marine Guidelines / BS 6349 Maritime Works' },
+      { label: 'Bonded Facility', value: 'Lekki Free Zone Custom Authority Clearances' },
+      { label: 'Logistics Corridor', value: 'Dedicated West African Heavy-Haul Transit' }
+    ]
   },
   {
     id: 'calgary-intermodal-depot',
@@ -265,10 +306,26 @@ export const PROJECTS: ProjectItem[] = [
     location: 'Calgary, Alberta, Canada',
     region: 'North America',
     year: '2023',
-    scope: 'Global steel structure procurement, long-span truss fabrication, automated overhead crane systems, and on-site EPC assembly.',
+    scope: 'Global steel structure procurement, long-span heavy truss fabrication, automated overhead gantry systems, heavy equipment dispatch, and on-site EPC assembly.',
     image: '/images/heavy-equipment-mfg.webp',
     imageMobile: '/images/heavy-equipment-mfg-mobile.webp',
-    stats: '240,000 sq.ft • Complete Turnkey Delivery'
+    stats: '240,000 sq.ft • Complete Turnkey Delivery',
+    contractType: 'Design-Build EPC & Supply Chain',
+    verificationStatus: 'Turnkey Commissioned',
+    highlights: [
+      'Sourced 2,800 metric tons of pre-engineered structural steel across global ISO-certified mills',
+      'Engineered synchronized dual 30-ton crane runways for intermodal locomotive maintenance',
+      'Executed full winterized construction logistics schedule in sub-zero Canadian temperatures',
+      'Handed over facility 3 weeks ahead of scheduled rail carrier assumption date'
+    ],
+    specifications: [
+      { label: 'Building Footprint', value: '240,000 sq.ft Enclosed Depot' },
+      { label: 'Steel Tonnage', value: '2,800 Metric Tons Structural Steel' },
+      { label: 'Overhead Gantry', value: 'Twin Synchronized 30-Ton Cranes' },
+      { label: 'Design Codes', value: 'CSA S16 / National Building Code of Canada' },
+      { label: 'Procurement Strategy', value: 'Direct Global Mill Sourcing with Factory Audits' },
+      { label: 'QA/QC Protocol', value: 'Non-Destructive Testing (NDT) 100% Complete' }
+    ]
   },
   {
     id: 'red-sea-refinery-upgrade',
@@ -277,10 +334,82 @@ export const PROJECTS: ProjectItem[] = [
     location: 'Yanbu Industrial City, Saudi Arabia',
     region: 'Middle East',
     year: '2024',
-    scope: 'Procurement of high-efficiency gas turbine units, vibration monitoring instrumentation, and technical FAT expediting.',
+    scope: 'Procurement of high-efficiency gas turbine generator units, vibration monitoring instrumentation, explosion-proof switchgear, and technical FAT expediting.',
     image: '/images/industrial-plant.webp',
     imageMobile: '/images/industrial-plant-mobile.webp',
-    stats: '450 MW Output • ISO 9001 QMS'
+    stats: '450 MW Output • ISO 9001 QMS',
+    contractType: 'Specialized Power Turbomachinery Procurement',
+    verificationStatus: 'ISO 9001:2015 FAT Verified',
+    highlights: [
+      'Supplied heavy-duty aeroderivative gas turbine skid packages certified for high ambient temperatures',
+      'Factory acceptance testing (FAT) witnessed by independent Saudi Aramco certified inspectors',
+      'Pre-commissioning electrical harmonic analysis and synchronized busbar protection integration',
+      'Reduced auxiliary plant fuel consumption by 11.4% with combined-cycle heat recovery'
+    ],
+    specifications: [
+      { label: 'Power Rating', value: '450 MW Combined-Cycle Generation' },
+      { label: 'Turbine Configuration', value: 'Twin SGT-800 Gas Turbine Skid Assemblies' },
+      { label: 'Ambient Rating', value: 'Engineered for +52°C Arabian Gulf Conditions' },
+      { label: 'Electrical Standards', value: 'IEC 60034 / IEEE 841 Hazardous Location' },
+      { label: 'Expediting Origin', value: 'European OEM Audits & Direct Airfreight Dispatch' },
+      { label: 'Commissioning Status', value: 'Live Grid Synchronization Completed' }
+    ]
+  },
+  {
+    id: 'guinea-bauxite-terminal',
+    title: 'West African Deepwater Bulk Loading Terminal',
+    sector: 'Marine & Logistics',
+    location: 'Kamsar Port, Republic of Guinea',
+    region: 'West Africa',
+    year: '2024',
+    scope: 'Procurement of continuous conveyor shiploader equipment, marine berthing dolphins, catenary mooring buoys, and transshipment barge fleets for bulk mineral export.',
+    image: '/images/global-logistics.webp',
+    imageMobile: '/images/global-logistics-mobile.webp',
+    stats: '3,500 TPH Shiploader • Capesize Berthing',
+    contractType: 'Turnkey Marine Bulk Handling Package',
+    verificationStatus: 'Commissioned & Handed Over',
+    highlights: [
+      'Engineered and supplied 3,500 tons/hour telescopic luffing shiploader with dust containment',
+      'Procured 4 heavy tugboat vessels and self-propelled transshipment barges for offshore loading',
+      'Integrated solar-powered radar aids-to-navigation across coastal Guinea navigation channel',
+      'Operated 18-month warranty maintenance and local crew operational training program'
+    ],
+    specifications: [
+      { label: 'Loading Capacity', value: '3,500 Tons Per Hour (TPH) Continuous' },
+      { label: 'Vessel Handling', value: 'Up to 180,000 DWT Capesize Bulk Carriers' },
+      { label: 'Offshore Anchorage', value: '18 Nautical Miles Offshore Transshipment Zone' },
+      { label: 'Marine Certification', value: 'Bureau Veritas (BV) Marine Classed' },
+      { label: 'Logistics Fleet', value: '4 ASD Tugboats & 6 Bulk Barges' },
+      { label: 'Environmental', value: 'Enclosed Telescopic Chute Dust Suppression' }
+    ]
+  },
+  {
+    id: 'al-jubail-cracking-unit',
+    title: 'Al-Jubail Petrochemical Cracking & Compression Module',
+    sector: 'Heavy Industrial',
+    location: 'Al-Jubail Industrial City, Saudi Arabia',
+    region: 'Middle East',
+    year: '2023',
+    scope: 'International sourcing of heavy-wall ethylene cracking furnace coils, cryogenic multi-stage compressor skids, heavy industrial valving, and high-integrity pipeline skids.',
+    image: '/images/heavy-equipment-mfg.webp',
+    imageMobile: '/images/heavy-equipment-mfg-mobile.webp',
+    stats: '850,000 MTA Ethylene • ISO 14001',
+    contractType: 'Major Capital Equipment Procurement',
+    verificationStatus: 'API 617 Certified',
+    highlights: [
+      'Sourced high-temperature centrifugal cast radiant tubes meeting stringent HP-Nb microalloy specs',
+      'Witnessed full cryogenic aero-performance string testing for centrifugal compressor trains',
+      'Managed direct charter Antonov An-124 cargo flights for mission-critical compressor impellers',
+      'Conducted on-site ultrasonic inspection during installation with zero baseline defects'
+    ],
+    specifications: [
+      { label: 'Ethylene Output', value: '850,000 Metric Tons Per Annum (MTA)' },
+      { label: 'Compressor Trains', value: 'Multi-Stage Centrifugal API 617 Trains' },
+      { label: 'Radiant Coil Alloy', value: '35Cr-45Ni-Nb Centrifugally Cast Alloy' },
+      { label: 'Quality Verification', value: 'API 617 / ASME Section VIII Div 2' },
+      { label: 'Freight Expedition', value: 'Chartered Heavy-Lift Ocean & Cargo Airfreight' },
+      { label: 'Safety Record', value: '1.2 Million Man-Hours Zero LTI' }
+    ]
   }
 ];
 
