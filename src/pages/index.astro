@@ -18,91 +18,87 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
   <!-- ==========================================
        HERO: HEAVY INDUSTRIAL POWER & GLOBAL REACH
        ========================================== -->
-  <section class="relative bg-obsidian-950 text-white overflow-hidden border-b border-obsidian-800" aria-label="Swift Global Hero">
-    <!-- Ambient Industrial Glow & Grid -->
-    <div class="absolute inset-0 bg-industrial-grid opacity-60 pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-amber-gold/10 rounded-full filter blur-[120px] pointer-events-none" aria-hidden="true"></div>
+  <section class="relative bg-obsidian-950 text-white overflow-hidden border-b border-obsidian-800 min-h-[640px] lg:min-h-[720px] flex items-center" aria-label="Swift Global Hero">
+    <!-- Layer 0: Background Hero Image -->
+    <div class="absolute inset-0 z-0">
+      <ResponsivePicture
+        desktopSrc="/images/international-epc-site.webp"
+        mobileSrc="/images/international-epc-site-mobile.webp"
+        alt="Swift Global heavy industrial petrochemical complex and turnkey EPC facility"
+        aspectRatio=""
+        class="w-full h-full object-cover object-right"
+        pictureClass="block w-full h-full"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
 
-    <div class="relative max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-20 sm:py-28 lg:py-32">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-        
-        <!-- Left: Value Proposition -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="flex items-center gap-3">
-            <Badge variant="amber">International EPC &amp; Procurement</Badge>
+    <!-- Layer 1: Directional Gradient Overlay (Left opaque for text, right clear for image visibility) -->
+    <!-- Mobile: Vertical gradient for clear text stacking -->
+    <div class="absolute inset-0 z-10 bg-gradient-to-b from-obsidian-950/95 via-obsidian-950/85 to-obsidian-950/90 md:hidden pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Desktop: Horizontal directional gradient: deep opaque obsidian on the left (for text), feathering to clear transparency on the right (so industrial facility is fully visible) -->
+    <div 
+      class="absolute inset-0 z-10 pointer-events-none hidden md:block" 
+      style="background: linear-gradient(90deg, #03070E 0%, rgba(3, 7, 14, 0.98) 32%, rgba(3, 7, 14, 0.85) 48%, rgba(3, 7, 14, 0.35) 70%, rgba(3, 7, 14, 0.05) 88%, transparent 100%);"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Top & bottom subtle blend vignettes -->
+    <div class="absolute inset-0 z-10 bg-gradient-to-t from-obsidian-950/90 via-transparent to-obsidian-950/50 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Subtle technical industrial grid texture & ambient glow -->
+    <div class="absolute inset-0 z-10 bg-industrial-grid opacity-40 pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-gold/5 rounded-full filter blur-[120px] pointer-events-none z-10" aria-hidden="true"></div>
+
+    <!-- Layer 2: Hero Foreground Content (Left aligned) -->
+    <div class="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-20 sm:py-28 lg:py-32">
+      <div class="max-w-2xl lg:max-w-3xl space-y-7">
+        <div class="flex items-center gap-3">
+          <Badge variant="amber">International EPC &amp; Procurement</Badge>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.08]">
+          Global Supply Chain<br/> Heavy Industrial <span class="text-amber-gold">Turnkey EPC</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-2xl">
+          Swift Global Inc. executes high-consequence heavy equipment procurement, technical vendor prequalification, industrial plant upgrades, and turnkey EPC construction delivery across North America, the Middle East, and West Africa.
+        </p>
+
+        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <Button href="/contact" variant="primary" size="lg">
+            Submit Procurement RFP →
+          </Button>
+          <Button href="/services" variant="outline" size="lg">
+            Explore EPC Capabilities
+          </Button>
+        </div>
+
+        <!-- Standards & Compliance Ribbon -->
+        <div class="pt-8 border-t border-obsidian-800/80 max-w-2xl">
+          <div class="text-[11px] font-mono text-amber-gold uppercase tracking-architect mb-3">
+            Operational Governance &amp; Standards:
           </div>
-
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.08]">
-            Global Supply Chain<br/> Heavy Industrial <span class="text-amber-gold">Turnkey EPC</span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-2xl">
-            Swift Global Inc. executes high-consequence heavy equipment procurement, technical vendor prequalification, industrial plant upgrades, and turnkey EPC construction delivery across North America, the Middle East, and West Africa.
-          </p>
-
-          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Button href="/contact" variant="primary" size="lg">
-              Submit Procurement RFP →
-            </Button>
-            <Button href="/services" variant="outline" size="lg">
-              Explore EPC Capabilities
-            </Button>
-          </div>
-
-          <!-- Standards & Compliance Ribbon -->
-          <div class="pt-8 border-t border-obsidian-800">
-            <div class="text-[11px] font-mono text-amber-gold uppercase tracking-architect mb-3">
-              Operational Governance &amp; Standards:
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
+              <span class="text-amber-gold block text-[10px] uppercase font-bold">GOVERNANCE</span>
+              <span class="font-bold text-white">ISO 9001 QMS</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
-              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
-                <span class="text-amber-gold block text-[10px] uppercase font-bold">GOVERNANCE</span>
-                <span class="font-bold text-white">ISO 9001 QMS</span>
-              </div>
-              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
-                <span class="text-amber-gold block text-[10px] uppercase font-bold">INSPECTION</span>
-                <span class="font-bold text-white">ASME &amp; API FAT</span>
-              </div>
-              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
-                <span class="text-amber-gold block text-[10px] uppercase font-bold">LOGISTICS</span>
-                <span class="font-bold text-white">Incoterms 2020</span>
-              </div>
-              <div class="p-3 rounded-md bg-obsidian-900/80 border border-obsidian-750">
-                <span class="text-amber-gold block text-[10px] uppercase font-bold">DELIVERY</span>
-                <span class="font-bold text-white">Turnkey EPC</span>
-              </div>
+            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
+              <span class="text-amber-gold block text-[10px] uppercase font-bold">INSPECTION</span>
+              <span class="font-bold text-white">ASME &amp; API FAT</span>
+            </div>
+            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
+              <span class="text-amber-gold block text-[10px] uppercase font-bold">LOGISTICS</span>
+              <span class="font-bold text-white">Incoterms 2020</span>
+            </div>
+            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
+              <span class="text-amber-gold block text-[10px] uppercase font-bold">DELIVERY</span>
+              <span class="font-bold text-white">Turnkey EPC</span>
             </div>
           </div>
         </div>
-
-        <!-- Right: Modern Glassmorphic Image Frame -->
-        <div class="lg:col-span-5 relative">
-          <div class="relative rounded-md overflow-hidden p-2 bg-gradient-to-b from-amber-gold/30 via-obsidian-800 to-obsidian-900 shadow-2xl">
-            <div class="relative rounded-md overflow-hidden aspect-[4/3] sm:aspect-[16/11]">
-              <ResponsivePicture
-                desktopSrc="/images/international-epc-site.webp"
-                mobileSrc="/images/international-epc-site-mobile.webp"
-                alt="Swift Global Industrial Petrochemical Complex"
-                aspectRatio="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                loading="eager"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950/80 via-transparent to-transparent pointer-events-none"></div>
-              
-              <!-- Floating Metadata Badge -->
-              <div class="absolute bottom-4 left-4 right-4 p-3 rounded-md bg-obsidian-950/90 backdrop-blur-md border border-amber-gold/30 flex items-center justify-between text-xs font-mono">
-                <div>
-                  <span class="text-amber-gold block text-[10px] uppercase">FLAGSHIP EPC PRACTICE</span>
-                  <strong class="text-white">ASME / API / ISO 9001</strong>
-                </div>
-                <div class="text-right">
-                  <span class="text-slate-400 block text-[10px]">GLOBAL SITES</span>
-                  <span class="text-emerald-400 font-bold">18+ ACTIVE</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>

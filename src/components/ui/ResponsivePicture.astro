@@ -1,11 +1,15 @@
 ---
 interface Props {
   desktopSrc: string;
-  mobileSrc: string;
+  mobileSrc?: string;
   alt: string;
   aspectRatio?: string;
   loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
   class?: string;
+  pictureClass?: string;
+  width?: number;
+  height?: number;
 }
 
 const {
@@ -14,18 +18,34 @@ const {
   alt,
   aspectRatio = 'aspect-[16/9]',
   loading = 'lazy',
-  class: className = ''
+  fetchpriority = 'auto',
+  class: className = '',
+  pictureClass = 'block w-full h-full',
+  width,
+  height,
 } = Astro.props;
+
+// Auto-derive mobileSrc if not explicitly passed
+const computedMobileSrc = mobileSrc || (
+  desktopSrc.endsWith('.webp') && !desktopSrc.includes('-mobile')
+    ? desktopSrc.replace('.webp', '-mobile.webp')
+    : desktopSrc
+);
 ---
 
-<picture class="block w-full h-full">
-  <source media="(max-width: 768px)" srcset={mobileSrc} type="image/webp" />
+<picture class={pictureClass}>
+  {computedMobileSrc && computedMobileSrc !== desktopSrc && (
+    <source media="(max-width: 768px)" srcset={computedMobileSrc} type="image/webp" />
+  )}
   <source media="(min-width: 769px)" srcset={desktopSrc} type="image/webp" />
   <img
     src={desktopSrc}
     alt={alt}
+    width={width}
+    height={height}
     loading={loading}
+    fetchpriority={fetchpriority}
     decoding="async"
-    class={`w-full h-full object-cover rounded-md ${aspectRatio} ${className}`}
+    class={`w-full h-full object-cover ${aspectRatio} ${className}`}
   />
 </picture>
