@@ -1,5 +1,5 @@
 ---
-import { COMPANY, SERVICES, SECTORS, GLOBAL_REGIONS } from '@/data/companyData';
+import { COMPANY, SERVICES, SECTORS } from '@/data/companyData';
 import Button from '@/components/ui/Button.astro';
 
 const sister = COMPANY.sisterCompany;
@@ -11,7 +11,7 @@ const sister = COMPANY.sisterCompany;
   <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-glow/5 filter blur-3xl pointer-events-none" aria-hidden="true"></div>
 
   <!-- Sister Entity Practice Banner -->
-  <aside aria-label="Sister practice link" class="border-b border-obsidian-800 bg-gradient-to-r from-obsidian-950 via-obsidian-900 to-obsidian-950 py-10 px-4 sm:px-6 lg:px-8">
+  <aside aria-label="Sister practice link" class="border-b border-obsidian-800 bg-gradient-to-r from-obsidian-950 via-obsidian-900 to-obsidian-950 py-10 px-6 md:px-10 lg:px-12">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="space-y-2 text-center md:text-left">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-steel-950 border border-steel-700/60 font-mono text-[11px] text-steel-300">
@@ -40,7 +40,7 @@ const sister = COMPANY.sisterCompany;
   </aside>
 
   <!-- Main Corporate Footer Grid -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 relative z-10">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-16 lg:py-20 relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
       
       <!-- Col 1: Corporate Profile & Logos -->
@@ -149,7 +149,7 @@ const sister = COMPANY.sisterCompany;
     <!-- Bottom Copyright & Continuum Bar -->
     <div class="mt-14 pt-8 border-t border-obsidian-850 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
       <div>
-        © {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.
+        © {new Date().getFullYear()} {COMPANY.legalName} All rights reserved.
       </div>
       <div class="flex items-center gap-4 text-[11px]">
         <span>Toronto • Dubai • Lagos</span>

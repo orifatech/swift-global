@@ -207,12 +207,6 @@ export const SECTORS: SectorItem[] = [
     summary: 'Engineering procurement and turnkey EPC execution for bulk liquid storage tanks, process manifolds, pumping stations, and refinery modernizations.',
     imageDesktop: '/images/industrial-plant.webp',
     imageMobile: '/images/industrial-plant-mobile.webp',
-    features: [
-      'API 650 storage tanks and high-pressure manifold fabrication',
-      'Crude handling, blending units, and custody transfer metering',
-      'Environmental vapor recovery and flare stack modernization',
-      'Strict compliance with ASME Section VIII and API 510/570'
-    ] as any,
     bulletPoints: [
       'API 650 storage tanks and high-pressure manifold fabrication',
       'Crude handling, blending units, and custody transfer metering',
