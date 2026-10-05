@@ -18,7 +18,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
   <!-- ==========================================
        HERO: HEAVY INDUSTRIAL POWER & GLOBAL REACH
        ========================================== -->
-  <section class="relative bg-obsidian-950 text-white overflow-hidden border-b border-obsidian-800 min-h-[640px] lg:min-h-[720px] flex items-center" aria-label="Swift Global Hero">
+  <section class="relative bg-obsidian-950 text-white overflow-hidden border-b border-obsidian-800 min-h-[90vh] flex items-center" aria-label="Swift Global Hero">
     <!-- Layer 0: Background Hero Image -->
     <div class="absolute inset-0 z-0">
       <ResponsivePicture
@@ -59,10 +59,10 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
         </div>
 
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold uppercase tracking-tight text-white leading-[1.08]">
-          Global Supply Chain<br/> Heavy Industrial <span class="text-amber-gold">Turnkey EPC</span>
+          Global Supply Chain<br/> Heavy Industrial <br/><span class="text-amber-gold">Turnkey EPC</span>
         </h1>
 
-        <p class="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-2xl">
+        <p class="hidden md:block text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-2xl">
           Swift Global Inc. executes high-consequence heavy equipment procurement, technical vendor prequalification, industrial plant upgrades, and turnkey EPC construction delivery across North America, the Middle East, and West Africa.
         </p>
 
@@ -74,31 +74,6 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
             Explore EPC Capabilities
           </Button>
         </div>
-
-        <!-- Standards & Compliance Ribbon -->
-        <div class="pt-8 border-t border-obsidian-800/80 max-w-2xl">
-          <div class="text-[11px] font-mono text-amber-gold uppercase tracking-architect mb-3">
-            Operational Governance &amp; Standards:
-          </div>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
-            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
-              <span class="text-amber-gold block text-[10px] uppercase font-bold">GOVERNANCE</span>
-              <span class="font-bold text-white">ISO 9001 QMS</span>
-            </div>
-            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
-              <span class="text-amber-gold block text-[10px] uppercase font-bold">INSPECTION</span>
-              <span class="font-bold text-white">ASME &amp; API FAT</span>
-            </div>
-            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
-              <span class="text-amber-gold block text-[10px] uppercase font-bold">LOGISTICS</span>
-              <span class="font-bold text-white">Incoterms 2020</span>
-            </div>
-            <div class="p-3 rounded-md bg-obsidian-900/90 border border-obsidian-750 backdrop-blur-sm">
-              <span class="text-amber-gold block text-[10px] uppercase font-bold">DELIVERY</span>
-              <span class="font-bold text-white">Turnkey EPC</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -106,12 +81,12 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
   <!-- ==========================================
        CORE CAPABILITIES SECTION
        ========================================== -->
-  <section class="py-20 lg:py-28 bg-obsidian-900 border-b border-obsidian-800 relative" aria-labelledby="capabilities-heading">
+  <section class="py-16 lg:py-20 bg-obsidian-900 border-b border-obsidian-800 relative" aria-labelledby="capabilities-heading">
     <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <SectionHeading
-          index="01 //"
+          index=""
           title="Engineering Procurement &amp; EPC Capabilities"
           subtitle="End-to-end industrial solutions: from technical vendor prequalification and long-lead equipment procurement to site commissioning."
         />
@@ -122,16 +97,8 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {SERVICES.slice(0, 3).map((service) => (
-          <article class="glass-card glass-card-hover rounded-md p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between font-mono">
-                <span class="text-2xl font-display font-bold text-amber-gold">{service.number} //</span>
-                <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-amber-950/60 border border-amber-500/30 text-amber-300">
-                  {service.keySpecs[0]?.label}: {service.keySpecs[0]?.value}
-                </span>
-              </div>
-
-              <div class="rounded-md overflow-hidden aspect-[16/9]">
+          <article class="glass-card glass-card-hover rounded-md flex flex-col justify-between relative overflow-hidden group">
+            <div class="rounded-md overflow-hidden aspect-[16/9]">
                 <ResponsivePicture
                   desktopSrc={service.imageDesktop}
                   mobileSrc={service.imageMobile}
@@ -139,7 +106,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
                   aspectRatio="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-
+            <div class="space-y-3 p-5">
               <h3 class="text-xl font-display font-bold uppercase tracking-tight text-white group-hover:text-amber-gold transition-colors">
                 {service.title}
               </h3>
@@ -147,18 +114,9 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
               <p class="text-sm text-slate-300 leading-relaxed font-sans">
                 {service.shortDesc}
               </p>
-
-              <ul class="space-y-2 pt-2 border-t border-obsidian-800 text-xs text-slate-300 font-mono">
-                {service.features.slice(0, 3).map((feature) => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-amber-gold">✓</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
-            <div class="pt-6 mt-4">
+            <div class="px-5 pb-4">
               <a
                 href={`/services#service-${service.number}`}
                 class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-amber-gold hover:text-white transition-colors"
@@ -177,12 +135,11 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
   <!-- ==========================================
        FEATURED PROJECTS PORTFOLIO
        ========================================== -->
-  <section class="py-20 lg:py-28 bg-obsidian-950 border-b border-obsidian-800" aria-labelledby="projects-heading">
+  <section class="py-16 lg:py-20 bg-obsidian-950 border-b border-obsidian-800" aria-labelledby="projects-heading">
     <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <SectionHeading
-          index="02 //"
           title="International Project Portfolio"
           subtitle="Demonstrated capital project execution across North America, the Middle East, and West Africa."
         />
@@ -192,7 +149,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {PROJECTS.map((project) => (
+        {PROJECTS.slice(0, 4).map((project) => (
           <article class="glass-card glass-card-hover rounded-md overflow-hidden group flex flex-col justify-between">
             <div class="relative aspect-[16/10] overflow-hidden">
               <ResponsivePicture
@@ -218,7 +175,7 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
               </div>
             </div>
 
-            <div class="p-6 sm:p-8 space-y-4 flex-grow flex flex-col justify-between">
+            <div class="p-5 sm:p-6 space-y-4 flex-grow flex flex-col justify-between">
               <div class="space-y-2">
                 <div class="flex items-center gap-2 font-mono text-xs text-slate-400">
                   <span>{project.location}</span>
@@ -229,10 +186,6 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
                 <h3 class="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-amber-gold transition-colors">
                   {project.title}
                 </h3>
-
-                <p class="text-sm text-slate-300 leading-relaxed font-sans">
-                  {project.scope}
-                </p>
               </div>
 
               <div class="pt-4 border-t border-obsidian-800 flex items-center justify-between text-xs font-mono">
@@ -253,31 +206,31 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
   <!-- ==========================================
        GLOBAL OPERATIONAL HUBS
        ========================================== -->
-  <section class="py-20 lg:py-28 bg-obsidian-900 border-b border-obsidian-800" aria-labelledby="footprint-heading">
+  <section class="py-16 lg:py-20 bg-obsidian-900 border-b border-obsidian-800" aria-labelledby="footprint-heading">
     <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
-      
       <SectionHeading
-        index="03 //"
+        index=""
         title="Cross-Border Footprint &amp; Operational Hubs"
         subtitle="Strategic procurement centers and on-the-ground engineering representation spanning three key continents."
         align="left"
-        class="mb-16"
+        class="mb-10"
       />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {GLOBAL_REGIONS.map((region) => (
-          <div class="glass-card rounded-md p-6 sm:p-8 space-y-5 border-l-4 border-l-amber-gold">
-            <div class="flex items-center justify-between">
-              <span class="text-3xl" aria-hidden="true">{region.flag}</span>
-              <span class="font-mono text-xs text-amber-gold uppercase tracking-wider">{region.leadRole}</span>
+          <div class="glass-card rounded-md p-5 sm:p-6 space-y-4 border-l-4 border-l-amber-gold">
+            <div class="space-y-0.5">
+              <div class="text-3xl" aria-hidden="true">{region.flag}</div>
+              <div class="font-mono text-xs text-amber-gold uppercase tracking-wider">{region.leadRole}</div>
             </div>
 
-            <h3 class="text-2xl font-display font-bold text-white">
-              {region.region}
-            </h3>
-
-            <div class="font-mono text-xs text-slate-400">
-              {region.headquarters}
+            <div class="space-y-0.5">
+              <h3 class="text-2xl font-display font-bold text-white">
+                {region.region}
+              </h3>
+              <div class="font-mono text-xs text-slate-400">
+                {region.headquarters}
+              </div>
             </div>
 
             <p class="text-sm text-slate-300 leading-relaxed font-sans">
@@ -307,9 +260,6 @@ import { SERVICES, PROJECTS, GLOBAL_REGIONS } from '@/data/companyData';
   <section class="py-20 lg:py-24 bg-gradient-to-br from-obsidian-950 via-obsidian-900 to-obsidian-950 text-white relative overflow-hidden" aria-label="Procurement Request">
     <div class="absolute inset-0 bg-industrial-grid opacity-40 pointer-events-none" aria-hidden="true"></div>
     <div class="max-w-5xl mx-auto px-6 md:px-10 lg:px-12 text-center relative z-10 space-y-6">
-      
-      <Badge variant="amber">Ready to Source &amp; Deliver</Badge>
-
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-tight">
         Accelerate Your Capital Project with Sovereign Procurement Power
       </h2>

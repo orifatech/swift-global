@@ -2,7 +2,6 @@
 import Layout from '@/layouts/Layout.astro';
 import SectionHeading from '@/components/ui/SectionHeading.astro';
 import Button from '@/components/ui/Button.astro';
-import Badge from '@/components/ui/Badge.astro';
 import ResponsivePicture from '@/components/ui/ResponsivePicture.astro';
 import { GLOBAL_REGIONS } from '@/data/companyData';
 ---
@@ -17,10 +16,6 @@ import { GLOBAL_REGIONS } from '@/data/companyData';
     <div class="absolute inset-0 bg-industrial-grid opacity-60 pointer-events-none" aria-hidden="true"></div>
     <div class="relative max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
       <div class="max-w-3xl space-y-4">
-        <div class="flex items-center gap-2">
-          <Badge variant="amber">Corporate Overview</Badge>
-          <span class="font-mono text-xs text-slate-400">Toronto HQ • Middle East • West Africa</span>
-        </div>
         <h1 class="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-tight">
           About Swift Global Inc.
         </h1>
@@ -35,11 +30,10 @@ import { GLOBAL_REGIONS } from '@/data/companyData';
   <section class="py-20 lg:py-28 bg-obsidian-900 text-white border-b border-obsidian-800">
     <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
         <!-- Left: Copy -->
         <div class="lg:col-span-7 space-y-6">
           <SectionHeading
-            index="01 //"
+            index=""
             title="Sourcing Integrity &amp; Turnkey Construction Governance"
             subtitle="Eliminating schedule drift and quality degradation across long-lead capital equipment and international construction sites."
           />
@@ -51,26 +45,6 @@ import { GLOBAL_REGIONS } from '@/data/companyData';
           <p class="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
             From preliminary technical bid leveling and Factory Acceptance Testing (FAT) to port staging, maritime chartering, and on-site EPC installation, our engineers provide complete transparency and contractual certainty.
           </p>
-
-          <!-- Core Capability Pillars -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 font-mono text-xs">
-            <div class="p-4 rounded-md bg-obsidian-950 border border-obsidian-750 space-y-1">
-              <span class="text-amber-gold font-bold block text-[11px] uppercase">01 / OEM PREQUALIFICATION</span>
-              <p class="text-slate-300 font-sans text-xs">Rigorous audits of manufacturer plant capacity, QA/QC systems, and ASME/API certified welders.</p>
-            </div>
-            <div class="p-4 rounded-md bg-obsidian-950 border border-obsidian-750 space-y-1">
-              <span class="text-amber-gold font-bold block text-[11px] uppercase">02 / FACTORY ACCEPTANCE TESTING</span>
-              <p class="text-slate-300 font-sans text-xs">Full witness inspection, hydrostatic pressure testing, and dimensional verification prior to ex-works release.</p>
-            </div>
-            <div class="p-4 rounded-md bg-obsidian-950 border border-obsidian-750 space-y-1">
-              <span class="text-amber-gold font-bold block text-[11px] uppercase">03 / INCOTERMS 2020 MASTERY</span>
-              <p class="text-slate-300 font-sans text-xs">Complete risk management across CIF, DAP, and DDP contracts with heavy-lift chartering and customs bonded clearance.</p>
-            </div>
-            <div class="p-4 rounded-md bg-obsidian-950 border border-obsidian-750 space-y-1">
-              <span class="text-amber-gold font-bold block text-[11px] uppercase">04 / TURNKEY EPC DELIVERY</span>
-              <p class="text-slate-300 font-sans text-xs">Seamless transition from international supply chain directly into on-site mechanical and civil installation.</p>
-            </div>
-          </div>
         </div>
 
         <!-- Right: Image Frame -->
@@ -84,17 +58,36 @@ import { GLOBAL_REGIONS } from '@/data/companyData';
             />
           </div>
         </div>
-
       </div>
+
+       <!-- Core Capability Pillars -->
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 pt-10 font-mono text-sm">
+            <div class="p-4 px-5 rounded-md bg-gray-900 border border-obsidian-600 space-y-1">
+              <span class="text-amber-gold font-bold block text-xs uppercase">OEM PREQUALIFICATION</span>
+              <p class="text-slate-300 font-sans text-xs">Rigorous audits of manufacturer plant capacity, QA/QC systems, and ASME/API certified welders.</p>
+            </div>
+            <div class="p-4 px-5 rounded-md bg-gray-900 border border-obsidian-600 space-y-1">
+              <span class="text-amber-gold font-bold block text-xs uppercase">FACTORY ACCEPTANCE TESTING</span>
+              <p class="text-slate-300 font-sans text-xs">Full witness inspection, hydrostatic pressure testing, and dimensional verification prior to ex-works release.</p>
+            </div>
+            <div class="p-4 px-5 rounded-md bg-gray-900 border border-obsidian-600 space-y-1">
+              <span class="text-amber-gold font-bold block text-xs uppercase">NCOTERMS 2020 MASTERY</span>
+              <p class="text-slate-300 font-sans text-xs">Complete risk management across CIF, DAP, and DDP contracts with heavy-lift chartering and customs bonded clearance.</p>
+            </div>
+            <div class="p-4 px-5 rounded-md bg-gray-900 border border-obsidian-600 space-y-1">
+              <span class="text-amber-gold font-bold block text-xs uppercase">TURNKEY EPC DELIVERY</span>
+              <p class="text-slate-300 font-sans text-xs">Seamless transition from international supply chain directly into on-site mechanical and civil installation.</p>
+            </div>
+          </div>
     </div>
   </section>
 
   <!-- International Operating Footprint -->
   <section class="py-20 lg:py-28 bg-obsidian-950 text-white border-b border-obsidian-800">
     <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12">
-      <div class="max-w-3xl mb-16">
+      <div class="max-w-3xl mb-10">
         <SectionHeading
-          index="02 //"
+          index=""
           title="International Operational Reach"
           subtitle="Operating through key strategic hubs across North America, the Arabian Gulf, and West Africa."
         />
@@ -102,10 +95,11 @@ import { GLOBAL_REGIONS } from '@/data/companyData';
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {GLOBAL_REGIONS.map((region) => (
-          <div class="glass-card rounded-md p-6 sm:p-8 space-y-4">
+          <div class="glass-card rounded-md p-5 sm:p-6 space-y-4">
             <div class="text-3xl">{region.flag}</div>
-            <h3 class="text-2xl font-display font-bold text-white">{region.region}</h3>
-            <div class="font-mono text-xs text-amber-gold">{region.headquarters}</div>
+            <div class="space-y-1"><h3 class="text-2xl font-display font-bold text-white">{region.region}</h3>
+            <div class="font-mono text-xs text-amber-gold">{region.headquarters}</div></div>
+            
             <p class="text-sm text-slate-300 leading-relaxed font-sans">{region.description}</p>
             <div class="pt-4 border-t border-obsidian-800 font-mono text-xs text-slate-400">
               <span class="text-slate-500 block text-[10px] uppercase mb-1">Key Hubs:</span>

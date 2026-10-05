@@ -18,7 +18,6 @@ import { SERVICES } from '@/data/companyData';
       <div class="max-w-3xl space-y-4">
         <div class="flex items-center gap-2">
           <Badge variant="amber">Capabilities Matrix</Badge>
-          <span class="font-mono text-xs text-slate-400">ISO 9001 • ASME • API</span>
         </div>
         <h1 class="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight text-white leading-tight">
           Procurement &amp; Turnkey EPC Services
@@ -32,25 +31,14 @@ import { SERVICES } from '@/data/companyData';
 
   <!-- Services Deep Dive List -->
   <section class="py-20 lg:py-28 bg-obsidian-900 text-white">
-    <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 space-y-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 space-y-16 md:space-y-24 lg:space-y-28">
       {SERVICES.map((service, idx) => (
         <article
           id={`service-${service.number}`}
-          class={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+          class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
         >
           <!-- Text Details -->
-          <div class={`lg:col-span-7 space-y-6 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
-            <div class="flex items-center gap-3">
-              <span class="text-3xl font-display font-bold text-amber-gold">{service.number} //</span>
-              <div class="flex flex-wrap gap-2">
-                {service.keySpecs.map((spec) => (
-                  <span class="px-2.5 py-1 rounded-md bg-obsidian-950 border border-obsidian-750 font-mono text-xs text-slate-300">
-                    <strong class="text-amber-gold">{spec.label}:</strong> {spec.value}
-                  </span>
-                ))}
-              </div>
-            </div>
-
+          <div class={`space-y-6 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
             <h2 class="text-2xl sm:text-3xl font-display font-extrabold uppercase text-white">
               {service.title}
             </h2>
@@ -82,7 +70,7 @@ import { SERVICES } from '@/data/companyData';
           </div>
 
           <!-- Image Frame -->
-          <div class={`lg:col-span-5 ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
+          <div class={`${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
             <div class="rounded-md overflow-hidden p-2 bg-gradient-to-b from-amber-gold/30 via-obsidian-800 to-obsidian-950 shadow-2xl">
               <div class="aspect-[16/11] rounded-md overflow-hidden">
                 <ResponsivePicture
